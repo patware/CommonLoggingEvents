@@ -12,7 +12,8 @@ namespace CommonLoggingLibrary.EventIds
   {
     {{#ids}}
     /// <summary>{{id}} - Referenced by Declaration <see cref="{{referencedByEventClass}}.{{referencedByEventDeclaration}}"/>, raised by method <see cref="{{raisedByCategory}}.{{raisedByMethod}}"/>
-    /// Message: {{message}}</summary>{{#remarks.0}}
+    /// Message: {{message}}
+    /// </summary>{{#remarks.0}}
     /// <remarks>{{#remarks}}
     /// <para>{{.}}</para>{{/remarks}}
     /// </remarks>{{/remarks.0}}
