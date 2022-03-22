@@ -1,0 +1,23 @@
+using Microsoft.Extensions.Logging;
+
+namespace CommonLoggingLibrary.EventIds
+{
+  /// <summary>
+  /// {{summary}}
+  /// </summary>{{#remarks.0}}
+    /// <remarks>{{#remarks}}
+    /// <para>{{.}}</para>{{/remarks}}
+    /// </remarks>{{/remarks.0}}
+  public static class {{name}}
+  {
+    {{#ids}}
+    /// <summary>
+    /// {{eventId}} {{summary}}  Used in the raising of Event ID <see cref="Helper.{{constant}}">{{eventId}}</see>.  To raise this Event, use method <see cref="{{category}}.{{method}}"/>
+    /// </summary>{{#remarks.0}}
+    /// <remarks>{{#remarks}}
+    /// <para>{{.}}</para>{{/remarks}}
+    /// </remarks>{{/remarks.0}}
+    public static EventId {{fullyQualifiedMethodName}} => new(Helper.{{constant}}, nameof({{category}}.{{method}}));
+    {{/ids}}
+  }
+}

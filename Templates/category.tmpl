@@ -1,0 +1,32 @@
+using System;
+using Microsoft.Extensions.Logging;
+
+namespace CommonLoggingLibrary
+{
+  /// <summary>
+  /// {{summary}}
+  /// </summary>{{#remarks.0}}
+    /// <remarks>{{#remarks}}
+    /// <para>{{.}}</para>{{/remarks}}
+    /// </remarks>{{/remarks.0}}
+  public static class {{name}}
+  {
+    {{#methods}}    
+    /// <summary>
+    /// {{eventId}}: Private static Declarator of <see cref="{{name}}"/>
+    /// </summary>
+    private readonly static Action<ILogger{{#arguments}}, {{valueType}}{{/arguments}}, Exception?> {{privateName}} = LoggerMessage.Define{{#withArguments}}<{{#arguments}}{{prefix}}{{valueType}}{{/arguments}}>{{/withArguments}}(LogLevel.{{logLevel}}, EventIds.{{eventLevel}}.{{fullyQualifiedMethodName}}, "{{message}}");
+
+    /// <summary>
+{{#summary}}    /// {{eventId}} - {{summary}}{{/summary}}
+    /// Writes a message like "{{message}}"
+    /// of <see cref="Microsoft.Extensions.Logging.LogLevel.{{logLevel}}"/> and Event ID <see cref="EventIds.Helper.{{eventIdConstantDeclaration}}">{{eventId}}</see>  (of event level/category <see cref="EventIds.{{eventClass}}"/>)
+    /// </summary>{{#remarks.0}}
+    /// <remarks>{{#remarks}}
+    /// <para>{{.}}</para>{{/remarks}}
+    /// </remarks>{{/remarks.0}}
+    public static void {{name}}(this ILogger logger{{#arguments}}, {{valueType}} {{name}}{{/arguments}}) => {{privateName}}(logger{{#arguments}}, {{name}}{{/arguments}}, default!);
+
+    {{/methods}}
+  }
+}
