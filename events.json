@@ -2,27 +2,27 @@
   "Categories": {
     "Application": {
       "Name": "Application",
-      "Summary": "Events that are related to the lifetime of the application, like starting, pausing, stopped.  A typical app's lifecycle will be: Starting -> Started [-> Pausing -> Paused [-> Resuming -> Resumed]] -> Stopping -> Stopped.",
+      "Summary": "Events that are related to the lifetime of the application, like starting, pausing, stopped.  A typical app's lifecycle will be: Starting -> Started [-> Pausing -> Paused [-> Resuming -> Resumed]] -> Stopping -> Stopped."
     },
     "Dependency": {
       "Name": "Dependency",
-      "Summary": "Events an application would raise during the Dependency Injection phase.  Notice that there are 3 VersionMismatch events: VersionMismatch, VersionMismatchedDegradedMode and VersionMismatchedShuttingDown: VersionMismatch is for apps that don't have fall back plan but the app can continue with limited functionality, VersionMismatchedDegradedMode is for apps that can work with a fall back plan, like a local only implementation of a service until the external service is resumed, and VersionMismatchedShuttingDown is when the app can't continue at all.",
+      "Summary": "Events an application would raise during the Dependency Injection phase.  Notice that there are 3 VersionMismatch events: VersionMismatch, VersionMismatchedDegradedMode and VersionMismatchedShuttingDown: VersionMismatch is for apps that don't have fall back plan but the app can continue with limited functionality, VersionMismatchedDegradedMode is for apps that can work with a fall back plan, like a local only implementation of a service until the external service is resumed, and VersionMismatchedShuttingDown is when the app can't continue at all."
     },
     "Logging": {
       "Name": "Logging",
-      "Summary": "Ironic, logging about logging.  Logging specific events.  Typical logging lifecycle: Initialized -> Started -> Stopped",
+      "Summary": "Ironic, logging about logging.  Logging specific events.  Typical logging lifecycle: Initialized -> Started -> Stopped"
     },
     "Configuration": {
       "Name": "Configuration",
-      "Summary": "Log entries/events about Configuration, like reading and validating configuration and settings.  Typical lifecycle of Configuration: Reading [-> Validating -> IsValid | NotVerifiable] -> Unusable.",
+      "Summary": "Log entries/events about Configuration, like reading and validating configuration and settings.  Typical lifecycle of Configuration: Reading [-> Validating -> IsValid | NotVerifiable] -> Unusable."
     },
     "External": {
       "Name": "External",
-      "Summary": "Calls to external systems, like database, services, urls and files/folders, local or remote.  The difference between ConnectingTo and Calling are important - ConnectingTo/ConnectedTo is for systems that keep an open connection to a service, like SqlConnection or two way communications framework like SignalR, gRPC.  Calling on the other hand is the actual call to consume the service it's connected to.  In some situation, there are no persistent connection and the ConnectingTo/ConnectedTo aren't used.  Typical lifecycle of External: ConnectingTo -> ConnectedTo.",
+      "Summary": "Calls to external systems, like database, services, urls and files/folders, local or remote.  The difference between ConnectingTo and Calling are important - ConnectingTo/ConnectedTo is for systems that keep an open connection to a service, like SqlConnection or two way communications framework like SignalR, gRPC.  Calling on the other hand is the actual call to consume the service it's connected to.  In some situation, there are no persistent connection and the ConnectingTo/ConnectedTo aren't used.  Typical lifecycle of External: ConnectingTo -> ConnectedTo."
     },
     "Diagnostics": {
       "Name": "Diagnostics",
-      "Summary": "Events that are specialized in Diagnostics like Smoke testing, Tracing and Health verification.  Smoke Testing, from Electronics field is the simplest form of validation and is to verify that the app can start and answer a call.  The Tracing tests are used to verify that the external dependencies the app is using are the ones that are expected.  The Health check is more in-depth and complete and similar to self-diagnostics, and would involve running simulations that includes external services.",
+      "Summary": "Events that are specialized in Diagnostics like Smoke testing, Tracing and Health verification.  Smoke Testing, from Electronics field is the simplest form of validation and is to verify that the app can start and answer a call.  The Tracing tests are used to verify that the external dependencies the app is using are the ones that are expected.  The Health check is more in-depth and complete and similar to self-diagnostics, and would involve running simulations that includes external services."
     }
   },
   "Ids": {
