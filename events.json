@@ -51,11 +51,11 @@
       "FullyQualifiedMethodName": "Application_Started",
       "EventClass": "LowLevel",
       "LogLevel": "Information",
-      "Message": "Application is Started.  Elapsed: {totalSeconds}",
+      "Message": "Application is Started.  Elapsed: {totalMilliseconds} milliseconds",
       "Arguments": [
         {
-          "Name": "totalSeconds",
-          "ValueType": "string",
+          "Name": "totalMilliseconds",
+          "ValueType": "double",
           "Summary": ""
         }
       ]
@@ -157,19 +157,31 @@
       "FullyQualifiedMethodName": "Configuration_Validating",
       "EventClass": "LowLevel",
       "LogLevel": "Information",
-      "Message": "Validating Configuration",
-      "Arguments": []
+      "Message": "Validating Configuration {friendlyName}",
+      "Arguments": [
+        {
+          "Name": "friendlyName",
+          "ValueType": "string",
+          "Summary": "The friendly name of the configuration"
+        }
+      ]
     },
     "111": {
       "EventId": 111,
       "Category": "Configuration",
-      "Method": "IsValid",
+      "Method": "ValueIsValid",
       "Summary": "The values from the configuration are useable and valid.  Well, they smell good.",
-      "FullyQualifiedMethodName": "Configuration_IsValid",
+      "FullyQualifiedMethodName": "Configuration_ValueIsValid",
       "EventClass": "LowLevel",
       "LogLevel": "Information",
       "Message": "Configuration is IsValid",
-      "Arguments": []
+      "Arguments": [
+        {
+          "Name": "friendlyName",
+          "ValueType": "string",
+          "Summary": "The friendly name of the configuration setting"
+        }
+      ]
     },
     "112": {
       "EventId": 112,
@@ -196,7 +208,7 @@
       "FullyQualifiedMethodName": "Configuration_VerifyingConnectionString",
       "EventClass": "LowLevel",
       "LogLevel": "Information",
-      "Message": "Reading ConnectionString. name: {name}, connectionString: {connectionString}",
+      "Message": "Verifying ConnectionString. name: {name}, connectionString: {connectionString}",
       "Arguments": [
         {
           "Name": "Name",
@@ -542,16 +554,16 @@
     "302": {
       "EventId": 302,
       "Category": "Diagnostics",
-      "Method": "ValidationIsInvalid",
+      "Method": "ValidationFailed",
       "Summary": "Self-Check found issues.",
-      "FullyQualifiedMethodName": "Diagnostics_ValidationIsInvalid",
+      "FullyQualifiedMethodName": "Diagnostics_ValidationFailed",
       "EventClass": "OperationalWarning",
       "LogLevel": "Warning",
       "Message": "Self-Check found issues.  {issues}",
       "Arguments": [
         {
           "Name": "issues",
-          "ValueType": "string",
+          "ValueType": "string[]",
           "Summary": "list of issues found"
         }
       ]
@@ -751,6 +763,32 @@
           "Summary": ""
         }
       ]
+    },
+    "506": {
+      "EventId": 506,
+      "Category": "Configuration",
+      "Method": "ValueIsInvalid",
+      "Summary": "The validation of a configuration setting failed.",
+      "FullyQualifiedMethodName": "Configuration_ValueIsInvalid",
+      "EventClass": "UnrecoverableWarning",
+      "LogLevel": "Warning",
+      "Message": "Configuration setting {friendlyName} with value {value} failed the test {test}.",
+      "Arguments": [
+        {
+          "Name": "friendlyName",
+          "ValueType": "string",
+          "Summary": "The name of friendly name of the configuration item"
+        },
+        {
+          "Name": "value",
+          "ValueType": "object",
+          "Summary": "The value, read from the configuration"
+        },
+        {
+          "Name": "test",
+          "ValueType": "string",
+          "Summary": "The test that validated the value"
+        }]
     },
     "601": {
       "EventId": 601,
