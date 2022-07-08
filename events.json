@@ -174,7 +174,7 @@
       "FullyQualifiedMethodName": "Configuration_ValueIsValid",
       "EventClass": "LowLevel",
       "LogLevel": "Information",
-      "Message": "Configuration is IsValid",
+      "Message": "Configuration value for {friendlyName} is IsValid",
       "Arguments": [
         {
           "Name": "friendlyName",
